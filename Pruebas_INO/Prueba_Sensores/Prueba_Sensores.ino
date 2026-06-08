@@ -15,7 +15,6 @@ void pcasel(uint8_t bus) {
 void setup() {
   Wire.begin();
   Serial.begin(115200);
-  //Serial.println("Lectura de MT6701 Iniciada...");
 }
 
 float obtenerAngulo(int canal) {
@@ -31,22 +30,19 @@ float obtenerAngulo(int canal) {
     uint8_t msb = Wire.read();
     uint8_t lsb = Wire.read();
     uint16_t rawData = (msb << 6) | (lsb >> 2);
-    //  obtener angulo en grados y corregir
     return (rawData * 360.0) / 16384.0;
   }
   return -1.0;
 }
 
 void loop() {
-  // Solo actúa si Python envió algo
   if (Serial.available() > 0) {
-    char comando = Serial.read(); // Leer la señal de Python
+    char comando = Serial.read();
 
     if (comando == 'r') {
       float angulo0 = obtenerAngulo(0);
       float angulo1 = obtenerAngulo(1);
 
-      // Enviamos la respuesta
       Serial.print(angulo0);
       Serial.print(","); 
       Serial.println(angulo1);
