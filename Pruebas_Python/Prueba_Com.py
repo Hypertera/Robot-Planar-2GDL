@@ -1,12 +1,12 @@
 import serial
 import time
 import math
+PI = math.pi
 
 # Configuración del motor
 PASOS_POR_REV = 200   # Pasos nativos del NEMA 17
 MICROSTEPPING = 4     # Ajusta según tus jumpers (1, 2, 4, 8, 16, 32)
-RELACION_PASOS_RAD = (PASOS_POR_REV * MICROSTEPPING) / (360)
-PI = math.pi
+RELACION_PASOS_RAD = (PASOS_POR_REV * MICROSTEPPING) / (2*PI)
 
 # Configurar puerto
 mot = serial.Serial(port='COM7', baudrate=115200, timeout=.1)
