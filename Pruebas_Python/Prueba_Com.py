@@ -26,7 +26,6 @@ def enviar_velocidad_rad(rad_x, rad_y):
     mot.write(comando.encode())
     print(f"Enviando Pasos/s -> X: {pasos_x} | Y: {pasos_y}\n")
 
-
 def leer_sen():
     # Leer sensores
     sen.write(b'r')
@@ -37,13 +36,16 @@ def leer_sen():
     print(f"Sensores: {vector}\n")
 
 
-
-enviar_velocidad_rad(PI*10, 1) 
-leer_sen()
+enviar_velocidad_rad(2, 2) 
 
 time.sleep(5)
 
 enviar_velocidad_rad(0, 0)
 
-sen.close()
-mot.close()
+try:
+    while True:
+        leer_sen()
+        time.sleep(0.5)
+except:
+    sen.close()
+    mot.close()
