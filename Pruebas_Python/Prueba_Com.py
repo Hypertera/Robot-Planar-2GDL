@@ -19,8 +19,8 @@ time.sleep(2)
 
 def enviar_velocidad_rad(rad_x, rad_y):
     # Convertir radianes/s a pasos/s
-    pasos_x = int(rad_x * RELACION_PASOS_RAD)
-    pasos_y = int(rad_y * RELACION_PASOS_RAD)
+    pasos_x = round(rad_x * RELACION_PASOS_RAD)
+    pasos_y = round(rad_y * RELACION_PASOS_RAD)
     
     comando = f"v{pasos_x},{pasos_y}\n"
     mot.write(comando.encode())
