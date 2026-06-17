@@ -24,7 +24,7 @@ class AppPlano:
         self.espcd = 5
         
         self.root = root
-        self.root.title("Curvas de Bézier Continuas")
+        self.root.title("Generador de trayectorias")
         
         self.root.protocol("WM_DELETE_WINDOW", self.cerrar_aplicacion)
 
