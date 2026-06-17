@@ -45,7 +45,7 @@ enviar_velocidad_rad(0, 0)
 try:
     while True:
         leer_sen()
-        time.sleep(0.5)
+        time.sleep(0.05)
 except:
     sen.close()
     mot.close()
