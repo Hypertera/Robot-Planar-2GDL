@@ -14,7 +14,7 @@ void pcasel(uint8_t bus) {
 // inicializar conexion
 void setup() {
   Wire.begin();
-  Serial.begin(115200);
+  Serial.begin(115200); // baudrate
   //Serial.println("Lectura de MT6701 Iniciada...");
 }
 
@@ -31,7 +31,6 @@ float obtenerAngulo(int canal) {
     uint8_t msb = Wire.read();
     uint8_t lsb = Wire.read();
     uint16_t rawData = (msb << 6) | (lsb >> 2);
-    //  obtener angulo en grados y corregir
     return (rawData * 360.0) / 16384.0;
   }
   return -1.0;
