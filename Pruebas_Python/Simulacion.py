@@ -18,7 +18,7 @@ xy = np.load('.npy') # Cargar trayectoria
 # Elegir pose inicial
 
 # Punto inicial de la trayectoria
-q = CinematicaInversa(xy[0][0], xy[1][0]) 
+q = CinematicaInversa(xy[0][0], xy[1][0])  # Iniciar el robot en el punto inicial de la trayectoria
 
 # Punto arbitrario
 # q = CinematicaInversa(10, 10)
