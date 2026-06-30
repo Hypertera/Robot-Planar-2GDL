@@ -29,7 +29,6 @@ void loop() {
     }
   }
   
-  // Estas funciones deben ejecutarse lo más rápido posible
   motorX.runSpeed();
   motorY.runSpeed();
 }
