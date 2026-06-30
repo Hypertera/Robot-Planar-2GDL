@@ -9,10 +9,10 @@ MICROSTEPPING = 4     # Ajusta según tus jumpers (1, 2, 4, 8, 16, 32)
 RELACION_PASOS_RAD = (PASOS_POR_REV * MICROSTEPPING) / (2*PI)
 
 # Configurar puerto
-mot = serial.Serial(port='COM7', baudrate=115200, timeout=.1)
+mot = serial.Serial(port='', baudrate=115200, timeout=.1)
 mot.reset_input_buffer()
 time.sleep(2)
-sen = serial.Serial(port='COM3', baudrate=115200, timeout=.1)
+sen = serial.Serial(port='', baudrate=115200, timeout=.1)
 sen.reset_input_buffer()
 sen.reset_output_buffer()
 time.sleep(2)
