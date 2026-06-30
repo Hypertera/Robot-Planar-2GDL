@@ -9,7 +9,7 @@ AccelStepper motorX(1, stepX, dirX);
 AccelStepper motorY(1, stepY, dirY);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); // baudrate
   pinMode(enablePin, OUTPUT);
   digitalWrite(enablePin, LOW); // Habilitar motores
 
