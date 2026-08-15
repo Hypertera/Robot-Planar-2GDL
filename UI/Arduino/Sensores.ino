@@ -48,7 +48,6 @@ void setup() {
   Wire.begin();
   Wire.setClock(400000);
   Serial.begin(250000); // baudrate
-  //delay(2000);
   
   Serial.write(0xAA);
   Serial.write(0x01);
@@ -109,7 +108,6 @@ void angCorrec(float anguloCrudo, int N){
 }
 
 void angTotal(int N){
-
   // determinar cuadrante
   if (Sensor[N].angulo>=0 && Sensor[N].angulo<=90){
     Sensor[N].cuadranteActl = 1;
@@ -123,7 +121,6 @@ void angTotal(int N){
   else if (Sensor[N].angulo>270 && Sensor[N].angulo<360){
     Sensor[N].cuadranteActl = 4;
   }
-
   // determinar el cambio de cuadrante y aumentar num de vueltas
   if (Sensor[N].cuadranteActl != Sensor[N].cuadranteAnt){
     if(Sensor[N].cuadranteActl == 1 && Sensor[N].cuadranteAnt == 4){
@@ -134,7 +131,6 @@ void angTotal(int N){
     }
       Sensor[N].cuadranteAnt = Sensor[N].cuadranteActl;
   }
-
   // calcular angulo total
   Sensor[N].angulo = (Sensor[N].vueltas*360) + Sensor[N].angulo;
 }
@@ -154,9 +150,6 @@ void comandos(){
           angTotal(i);
           angData.ang[i] = Sensor[i].angulo;
         }
-
-        //angData.ang1 = Sensor[0].angulo;
-        //angData.ang2 = Sensor[1].angulo;
 
         Serial.write((char*)&angData, sizeof(angData));
 
