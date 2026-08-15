@@ -1,0 +1,14 @@
+{
+    "sensores": [
+        {
+            "ID": 0,
+            "offset": 0,
+            "invertido": false
+        },
+        {
+            "ID": 1,
+            "offset": 322.84423828125,
+            "invertido": true
+        }
+    ]
+}
